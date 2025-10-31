@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Vector2 moveVector = moveAction.ReadValue<Vector2>();
-        Debug.Log(moveVector);
+
         if (moveVector.x < 0.0f)
         {
             playerRigidbody2D.AddTorque(torqueAmount);
