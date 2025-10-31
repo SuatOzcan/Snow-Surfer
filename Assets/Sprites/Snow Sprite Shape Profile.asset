@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Snow Sprite Shape Profile
   m_EditorClassIdentifier: 
   m_Angles:
-  - m_Start: -180
-    m_End: 180
+  - m_Start: -48
+    m_End: -39
     m_Order: 0
     m_Sprites:
     - {fileID: -7106506581416268285, guid: 8720e2d16ab35e64dbd03cce98d19bc6, type: 3}
