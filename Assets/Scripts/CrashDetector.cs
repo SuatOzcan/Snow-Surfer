@@ -5,6 +5,8 @@ public class CrashDetector : MonoBehaviour
 {
     [SerializeField]
     float _restartSceneDelay = 1.0f;
+    [SerializeField]
+    ParticleSystem _particleSystem;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,6 +27,7 @@ public class CrashDetector : MonoBehaviour
         if (collision.gameObject.layer == layerIndex)
         {
             Debug.Log("Player crashed!");
+            _particleSystem.Play();
             Invoke(nameof(ReloadScene), _restartSceneDelay);
         }
     }
