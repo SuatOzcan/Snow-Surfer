@@ -1,7 +1,11 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CrashDetector : MonoBehaviour
 {
+    [SerializeField]
+    float _restartSceneDelay = 1.0f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -21,6 +25,12 @@ public class CrashDetector : MonoBehaviour
         if (collision.gameObject.layer == layerIndex)
         {
             Debug.Log("Player crashed!");
+            Invoke(nameof(ReloadScene), _restartSceneDelay);
         }
+    }
+
+    void ReloadScene()
+    {
+        SceneManager.LoadScene(0);
     }
 }

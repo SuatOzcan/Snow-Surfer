@@ -1,7 +1,11 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FinishLine : MonoBehaviour
 {
+    [SerializeField]
+    float _restartSceneDelay = 1.0f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,6 +24,12 @@ public class FinishLine : MonoBehaviour
         if(collision.gameObject.layer == layerIndex)
         {
             print("Player has won!");
+            Invoke(nameof(ReloadScene), _restartSceneDelay);
         }
+    }
+
+    void ReloadScene()
+    {
+        SceneManager.LoadScene(0);
     }
 }
