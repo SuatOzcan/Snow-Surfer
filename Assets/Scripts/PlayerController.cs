@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     Vector2 _moveVector;
 
     [SerializeField]
-    private float torqueAmount = 50.0f;
+    private float _torqueAmount = 50.0f;
     [SerializeField]
     float _baseSpeed = 15.0f;
     [SerializeField]
@@ -49,11 +49,11 @@ public class PlayerController : MonoBehaviour
 
         if (_moveVector.x < 0.0f)
         {
-            playerRigidbody2D.AddTorque(torqueAmount);
+            playerRigidbody2D.AddTorque(_torqueAmount);
         }
         else if (_moveVector.x > 0.0f)
         {
-            playerRigidbody2D.AddTorque(-torqueAmount);
+            playerRigidbody2D.AddTorque(-_torqueAmount);
         }
     }
 
@@ -85,5 +85,20 @@ public class PlayerController : MonoBehaviour
     public void DisableControls()
     {
         _canControlPlayer = false;
+    }
+
+    public void ActivatePowerup(PowerUpScriptableObject powerup)
+    {
+        if(powerup.GetPowerupType() == "speed")
+        {
+            _baseSpeed += powerup.GetValueChange();
+            _boostSpeed += powerup.GetValueChange();
+        }
+
+
+        else if(powerup.GetPowerupType() == "torque")
+        {
+            _torqueAmount += powerup.GetValueChange();
+        }
     }
 }
