@@ -20,7 +20,8 @@ public class PlayerController : MonoBehaviour
 
     float _previousRotation;
     float _totalRotation;
-    int _flipCount;
+
+    ScoreManager _scoreManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour
         moveAction = InputSystem.actions.FindAction("Move");
         playerRigidbody2D = GetComponent<Rigidbody2D>();
         _surfaceEffector = FindFirstObjectByType<SurfaceEffector2D>();
+        _scoreManager = FindAnyObjectByType<ScoreManager>();
     }
 
     // Update is called once per frame
@@ -75,11 +77,9 @@ public class PlayerController : MonoBehaviour
 
         if(_totalRotation > 340 ||  _totalRotation < -340f)
         {
-            _flipCount += 1;
             _totalRotation = 0;
+            _scoreManager.AddScore(100);
         }
-
-        print(_flipCount);
     }
 
     public void DisableControls()
