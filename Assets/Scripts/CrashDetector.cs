@@ -4,14 +4,15 @@ using UnityEngine.SceneManagement;
 public class CrashDetector : MonoBehaviour
 {
     [SerializeField]
-    float _restartSceneDelay = 1.0f;
+    float _restartSceneDelay = 5.0f;
     [SerializeField]
     ParticleSystem _particleSystem;
+    PlayerController _playerController;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        _playerController = FindFirstObjectByType<PlayerController>();
     }
 
     // Update is called once per frame
@@ -28,6 +29,7 @@ public class CrashDetector : MonoBehaviour
         {
             Debug.Log("Player crashed!");
             _particleSystem.Play();
+            _playerController.DisableControls();
             Invoke(nameof(ReloadScene), _restartSceneDelay);
         }
     }

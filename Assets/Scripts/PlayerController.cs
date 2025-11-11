@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     float _boostSpeed = 40.0f;
 
-    
+    bool _canControlPlayer = true;
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -30,11 +30,14 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RotatePlayer();
-        BoostPlayer();
+        if (_canControlPlayer)
+        {
+            RotatePlayer();
+            BoostPlayer();
+        }
     }
 
-    void RotatePlayer()
+        void RotatePlayer()
     {
         _moveVector = moveAction.ReadValue<Vector2>();
 
@@ -58,5 +61,10 @@ public class PlayerController : MonoBehaviour
         {
             _surfaceEffector.speed = _baseSpeed;
         }
+    }
+
+    public void DisableControls()
+    {
+        _canControlPlayer = false;
     }
 }
