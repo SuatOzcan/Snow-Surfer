@@ -102,4 +102,19 @@ public class PlayerController : MonoBehaviour
             _torqueAmount += powerup.GetValueChange();
         }
     }
+    public void DeactivatePowerup(PowerUpScriptableObject powerup)
+    {
+        if (powerup.GetPowerupType() == PowerUpScriptableObject._powerupTypes.speed)
+        {
+            _baseSpeed -= powerup.GetValueChange();
+            _boostSpeed -= powerup.GetValueChange();
+        }
+
+
+        else if (powerup.GetPowerupType() == PowerUpScriptableObject._powerupTypes
+                                                                    .torque)
+        {
+            _torqueAmount -= powerup.GetValueChange();
+        }
+    }
 }

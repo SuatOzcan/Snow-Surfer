@@ -17,8 +17,9 @@ public class PowerUpScriptableObject : ScriptableObject
 
 
     public enum _powerupTypes { speed, torque };
+    
     [SerializeField]
-    _powerupTypes[] _powerupTypesArray;
+    _powerupTypes[] _powerupTypesArray = new _powerupTypes[1];
 
     
     public _powerupTypes GetPowerupType()

@@ -10024,7 +10024,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea824cbbba5a99e40a0a145e05403071, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PowerupManager
-  _powerup: {fileID: 11400000, guid: afa3a5a50eb95974db885ac87a8c8b35, type: 2}
+  _powerup: {fileID: 11400000, guid: 21d87d4902f33dd4582a954c46f99740, type: 2}
 --- !u!212 &1094619099
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10092,7 +10092,7 @@ Transform:
   m_GameObject: {fileID: 1094619096}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -47.3, y: 26.3, z: 0}
+  m_LocalPosition: {x: -47.3, y: 26, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
