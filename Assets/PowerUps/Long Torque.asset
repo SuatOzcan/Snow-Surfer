@@ -15,3 +15,4 @@ MonoBehaviour:
   _powerUpType: torque
   _valueChange: 10
   _time: 4
+  _powerupTypesArray: 01000000

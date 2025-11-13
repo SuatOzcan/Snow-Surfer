@@ -1,4 +1,9 @@
+using NUnit.Framework;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
+
+
 
 [CreateAssetMenu(fileName = "PowerUpScriptableObject", menuName = "Scriptable Objects/PowerUpScriptableObject")]
 public class PowerUpScriptableObject : ScriptableObject
@@ -8,11 +13,17 @@ public class PowerUpScriptableObject : ScriptableObject
     [SerializeField]
     float _valueChange;
     [SerializeField]
-    float _time;
+    public float _time;
 
-    public string GetPowerupType()
+
+    public enum _powerupTypes { speed, torque };
+    [SerializeField]
+    _powerupTypes[] _powerupTypesArray;
+
+    
+    public _powerupTypes GetPowerupType()
     {
-        return _powerUpType;
+        return _powerupTypesArray[0];
     }
 
     public float GetValueChange()

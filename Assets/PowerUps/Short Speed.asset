@@ -15,3 +15,4 @@ MonoBehaviour:
   _powerUpType: speed
   _valueChange: 12
   _time: 4
+  _powerupTypesArray: 01000000
