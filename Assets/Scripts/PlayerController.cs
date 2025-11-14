@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     float _previousRotation;
     float _totalRotation;
 
+    [SerializeField]
     ScoreManager _scoreManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -32,7 +33,7 @@ public class PlayerController : MonoBehaviour
         moveAction = InputSystem.actions.FindAction("Move");
         playerRigidbody2D = GetComponent<Rigidbody2D>();
         _surfaceEffector = FindFirstObjectByType<SurfaceEffector2D>();
-        _scoreManager = FindAnyObjectByType<ScoreManager>();
+        // _scoreManager = FindAnyObjectByType<ScoreManager>();
     }
 
     // Update is called once per frame
